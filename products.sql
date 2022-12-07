@@ -1,6 +1,11 @@
 CREATE SCHEMA IF NOT EXISTS `pcstoreproject` DEFAULT CHARACTER SET utf8 ;
 USE `pcstoreproject` ;
 
+CREATE TABLE IF NOT EXISTS `pcstoreproject`.`category` (
+  `categoryID` INT NOT NULL,
+  `category_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`categoryID`));
+  
 CREATE TABLE `products` (
   `productID` INT NOT NULL AUTO_INCREMENT,
   `categoryID` INT NOT NULL,
@@ -11,7 +16,9 @@ CREATE TABLE `products` (
   `img_src` VARCHAR(255) NOT NULL,
   `model` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`productID`),
-  UNIQUE INDEX (`productID`));
+  UNIQUE INDEX (`productID`),
+  FOREIGN KEY (`categoryID`)
+    REFERENCES `pcstoreproject`.`category` (`categoryID`));
 
 CREATE TABLE IF NOT EXISTS `pcstoreproject`.`Sockets` (
   `socketID` INT NOT NULL,
@@ -106,8 +113,3 @@ CREATE TABLE IF NOT EXISTS `pcstoreproject`.`Cooling` (
   `noise` FLOAT NOT NULL,
     FOREIGN KEY (`productID`)
     REFERENCES `pcstoreproject`.`products` (`productID`));
-
-CREATE TABLE IF NOT EXISTS `pcstoreproject`.`category` (
-  `categoryID` INT NOT NULL,
-  `category_name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`categoryID`));
