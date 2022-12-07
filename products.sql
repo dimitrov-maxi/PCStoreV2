@@ -108,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `pcstoreproject`.`Cooling` (
     REFERENCES `pcstoreproject`.`products` (`productID`));
 
 CREATE TABLE IF NOT EXISTS `pcstoreproject`.`category` (
-  `productID` INT NOT NULL,
+  `categoryID` INT NOT NULL,
   `category_name` VARCHAR(45) NOT NULL,
-  FOREIGN KEY (`productID`)
-   REFERENCES `pcstoreproject`.`products` (`productID`));
+  PRIMARY KEY (`categoryID`));
