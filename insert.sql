@@ -7,7 +7,7 @@ INSERT INTO `category` (`categoryID`, `category_name`) VALUES ('1', 'CPU'), ('2'
 INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `quantity`, `manufacturer`, `img_src`, `model`) VALUES ('1', '1', 'Intel Core i5-12600kf', '550', '12', 'Intel', 'Pictures\\Products\\CPU\\12600kf.jpg', 'Core i5');
 INSERT INTO `cpus` (`productID`, `base_clock`, `boost_clock`, `core_count`, `thread_count`, `series`, `socketID`) VALUES ('1', '3.7', '4.9', '10', '16', 'i5', '1');
 
-INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `quantity`, `manufacturer`, `img_src`, `model`) VALUES ('2', '2', 'MSI GTX 1650 VENTUS XS', '400', '20', 'Nvidia', 'Products\\GPU\\GTX 1650.jpg', 'GTX 1650');
+INSERT INTO `products` (`productID`, `categoryID`, `name`, `price`, `quantity`, `manufacturer`, `img_src`, `model`) VALUES ('2', '2', 'MSI GTX 1650 VENTUS XS', '400', '20', 'Nvidia', 'Prictures\\Products\\GPU\\GTX 1650.jpg', 'GTX 1650');
 INSERT INTO `gpus` (`productID`, `base_clock`, `boost_clock`, `core_count`, `series`, `vendor`, `vram`, `vram_type`, `connector_type`) VALUES ('2', '1.48', '1.74', '896', 'GTX 1650', 'MSI', '4', 'GDDR5', 'None');
 
 -- SOCKET FILL
