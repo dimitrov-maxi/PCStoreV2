@@ -20,6 +20,6 @@ INSERT INTO `users` (`userID`, `username`, `email`, `password`) VALUES (NULL, 'f
 
 -- INSERT TEST ORDER
 
-INSERT INTO `orders` (`orderID`, `userID`, `date`, `address`, `paymentMethod`, `totalPrice`) VALUES (NULL, '1', '2023-02-02', 'Perusha 4, Pravets 2161, Bulgaria', 'Card', '700');
+INSERT INTO `orders` (`orderID`, `userID`, `date`, `address`, `paymentMethod`, `totalPrice`) VALUES (NULL, '1', '2023-02-02', 'Perusha 4, Pravets 2161, Bulgaria', 'Card', '700', 'Waiting');
 
 INSERT INTO `orders_have_products` (`orderID`, `productID`, `currentPrice`, `quantity`) VALUES ('1', '1', '400', '1'), ('1', '2', '300', '1');
