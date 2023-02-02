@@ -113,3 +113,58 @@ CREATE TABLE IF NOT EXISTS `pcstoreproject`.`Cooling` (
   `noise` FLOAT NOT NULL,
     FOREIGN KEY (`productID`)
     REFERENCES `pcstoreproject`.`products` (`productID`));
+    
+-- users
+
+CREATE TABLE `pcstoreproject`.`users` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE INDEX `userID_UNIQUE` (`userID` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+  
+CREATE TABLE `pcstoreproject`.`admins` (
+  `adminID` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`adminID`),
+  UNIQUE INDEX `adminID_UNIQUE` (`adminID` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+  
+  -- orders
+  
+CREATE TABLE `pcstoreproject`.`orders` (
+  `orderID` INT NOT NULL AUTO_INCREMENT,
+  `userID` INT NOT NULL,
+  `date` DATE NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `paymentMethod` VARCHAR(45) NOT NULL,
+  `totalPrice` DOUBLE NOT NULL,
+  PRIMARY KEY (`orderID`),
+  UNIQUE INDEX `idOrders_UNIQUE` (`orderID` ASC),
+  INDEX `userID_idx` (`userID` ASC),
+  CONSTRAINT `userID`
+    FOREIGN KEY (`userID`)
+    REFERENCES `pcstoreproject`.`users` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+CREATE TABLE `pcstoreproject`.`orders_have_products` (
+  `orderID` INT NOT NULL,
+  `productID` INT NOT NULL,
+  `currentPrice` DOUBLE NOT NULL,
+  `quantity` INT NOT NULL,
+    FOREIGN KEY (`orderID`)
+    REFERENCES `pcstoreproject`.`orders` (`orderID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    FOREIGN KEY (`productID`)
+    REFERENCES `pcstoreproject`.`products` (`productID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
