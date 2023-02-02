@@ -145,6 +145,7 @@ CREATE TABLE `pcstoreproject`.`orders` (
   `address` VARCHAR(45) NOT NULL,
   `paymentMethod` VARCHAR(45) NOT NULL,
   `totalPrice` DOUBLE NOT NULL,
+  `status` ENUM("Waiting", "Sent", "Delivered", "Completed") NOT NULL `totalPrice`,
   PRIMARY KEY (`orderID`),
   UNIQUE INDEX `idOrders_UNIQUE` (`orderID` ASC),
   INDEX `userID_idx` (`userID` ASC),
